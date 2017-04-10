@@ -109,21 +109,6 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf
 ifeq ($(strip $(TARGET_ARCH)), arm)
 
-PRODUCT_PACKAGES += \
-    libpppoe-jni \
-    pppoe-service \
-    pppoe \
-    pppoe-sniff \
-    pppoe-repay 
- 
-PRODUCT_SYSTEM_SERVER_JARS += \
-    pppoe-service 
-#$_rbox_$_modify_$_chenzhi_20120309: add android.software.pppoe.xml
-PRODUCT_COPY_FILES += \
-       frameworks/native/data/etc/android.software.pppoe.xml:system/etc/permissions/android.software.pppoe.xml
-#$_rbox_$_modify_$_chenzhi_20120309
-    $(call inherit-product, external/rp-pppoe/pppoe-copy.mk)
-
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 include device/rockchip/common/samba/rk31_samba.mk
 PRODUCT_COPY_FILES += \
